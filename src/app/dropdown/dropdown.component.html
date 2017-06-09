@@ -1,0 +1,9 @@
+<section class="dropdown">
+  <span class="result_block" (click)="openLits()" [class.open]="listOpen">Movie: {{ chosenMovie }}</span>
+  <ul class="result_list" [class.open]="listOpen">
+    <li class="result_item" *ngFor="let movie of muvies" (click)="chooseMovie(movie.original_title)">{{ movie.original_title }}</li>
+  </ul>
+  <div class="clear_button">
+      <button (click)="clearMovie()" *ngIf="chosenMovie">Clear</button>
+  </div>
+</section>
