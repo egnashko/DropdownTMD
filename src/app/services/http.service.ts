@@ -7,13 +7,12 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class HttpService {
-  host: string = 'https://api.themoviedb.org/3/genre/28/movies?api_key=f2c299854f7ac8e69ef49715399c1bbe&language=en-US&include_adult=false&sort_by=created_at.asc';
 
   constructor(private http: Http) { }
 
-  httpGet(): Observable<any> {
+  httpGet(host): Observable<any> {
     return this.http
-               .get(this.host)
+               .get(host)
                .map(res => res.json())
                .catch(this.handleError);
   }
